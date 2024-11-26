@@ -38,14 +38,8 @@ sudo ./cleanup_script.sh
 
 The script logs all operations to /var/log/edge_cleanup.log. Example log entries:
 
-2024-11-26 14:00:01 - ===========================================
-2024-11-26 14:00:01 - Edge Cleanup Script Initiated
-2024-11-26 14:00:02 - Starting Edge cleanup process...
-2024-11-26 14:00:02 - Latest version identified: 118.0.2088.76
-2024-11-26 14:00:03 - Removing older version: 117.0.2045.60
-2024-11-26 14:00:03 - Successfully removed 117.0.2045.60
-2024-11-26 14:00:04 - Edge cleanup process completed.
-2024-11-26 14:00:04 - ===========================================
+![alt text](https://github.com/Samstar777/Edge-Cleanup-Script/blob/main/Logging%20Screenshot.png)
+
 
 ## Customization
 
