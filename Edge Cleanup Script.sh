@@ -8,6 +8,7 @@
 EDGE_UPDATER_PATH="/Library/Application Support/Microsoft/EdgeUpdater/apps/msedge-stable"
 LOG_FILE="/var/log/edge_cleanup.log"
 DRY_RUN=false   # Set to true to simulate the cleanup without deleting anything
+downloadURL="https://go.microsoft.com/fwlink/?linkid=2093504"
 
 # Functions
 log_message() {
@@ -23,7 +24,7 @@ cleanup_versions() {
     fi
 
     # Identify the latest version
-    LATEST_VERSION=$(ls "$EDGE_UPDATER_PATH" | sort -V | tail -n 1)
+    LATEST_VERSION=$(curl -fsIL "$downloadURL" | grep -i location: | grep -o "/MicrosoftEdge.*pkg" | sed -E 's/.*\/[a-zA-Z]*-([0-9.]*)\..*/\1/g')
     log_message "Latest version identified: $LATEST_VERSION"
 
     # Loop through all versions and delete older ones
@@ -35,7 +36,7 @@ cleanup_versions() {
                 log_message "DRY-RUN: Would remove older version: $version_name"
             else
                 log_message "Removing older version: $version_name"
-                rm -rf "$version" && log_message "Successfully removed $version_name" || log_message "Failed to remove $version_name"
+                #rm -rf "$version" && log_message "Successfully removed $version_name" || log_message "Failed to remove $version_name"
             fi
         else
             log_message "Skipping latest version: $version_name"
