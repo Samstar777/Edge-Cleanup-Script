@@ -51,7 +51,6 @@ The script logs all operations to /var/log/edge_cleanup.log. Example log entries
 
 - This script does not update Microsoft Edge; it only cleans up older versions.
 - Requires administrative privileges to execute.
-- Assumes that the latest version is correctly identified based on lexicographical sorting.
 
 ## Contributing
 
