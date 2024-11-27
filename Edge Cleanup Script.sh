@@ -36,7 +36,7 @@ cleanup_versions() {
                 log_message "DRY-RUN: Would remove older version: $version_name"
             else
                 log_message "Removing older version: $version_name"
-                #rm -rf "$version" && log_message "Successfully removed $version_name" || log_message "Failed to remove $version_name"
+                rm -rf "$version" && log_message "Successfully removed $version_name" || log_message "Failed to remove $version_name"
             fi
         else
             log_message "Skipping latest version: $version_name"
